@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
+    
     <title>NoticeBoard</title>
 </head>
 <body>
@@ -21,6 +22,20 @@
             </div>
         </div>
         <div class="noticeWrap"></div>
+        <div class="noticePopupWrap">
+            <div class="noticePopup">
+                <h3>Notice</h3>
+                <div class="popupLine"></div>
+                <input type="text" class="textInput"/>
+                <input type="date" class="dateInput"/> 
+                <textarea class="textArea"></textarea>
+                <button class="editBtn">등록</button>
+                <div class="btn popupClose">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="./index.js"></script>
 </body>
 </html>
