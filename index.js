@@ -22,10 +22,24 @@ popupBtn.addEventListener("click", function (e) {
     date: document.getElementById("dateInput").value,
     text: document.getElementById("textArea").value,
   });
+  document.getElementById("textInput").value = null;
+  document.getElementById("dateInput").value = null;
+  document.getElementById("textArea").value = null;
+  popup.style.display = "none";
+  arrayMap();
 });
 
 const arrayMap = () => {
-  conArray.map(() => {
-    let a = document.createElement;
+  noticeWrap.innerHTML = "";
+  conArray.map((con) => {
+    let a = document.createElement("div");
+    a.classList += "noticeCont";
+    let title = document.createElement("h3");
+    title.innerText = con.title;
+    a.appendChild(title);
+    noticeWrap.appendChild(a);
   });
+  console.log("map");
 };
+
+arrayMap();
