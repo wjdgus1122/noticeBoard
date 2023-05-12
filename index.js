@@ -32,12 +32,15 @@ popupBtn.addEventListener("click", function (e) {
 const arrayMap = () => {
   noticeWrap.innerHTML = "";
   conArray.map((con) => {
-    let a = document.createElement("div");
-    a.classList += "noticeCont";
-    let title = document.createElement("h3");
-    title.innerText = con.title;
-    a.appendChild(title);
-    noticeWrap.appendChild(a);
+    noticeWrap.innerHTML = `
+    <div class="noticeCont">
+      <h3 class="conTitle">${con.title}</h3>
+      <div class="conArrow">
+        <i class="fa-solid fa-angle-down"></i>
+      </div>
+    </div>
+    <div class="contText">${con.text}</div>
+  `;
   });
   console.log("map");
 };
