@@ -4,6 +4,8 @@ let noticeWrap = document.querySelector(".noticeWrap");
 let popup = document.querySelector(".noticePopupWrap");
 let popupClose = document.querySelector(".popupClose");
 let popupBtn = document.querySelector(".editBtn");
+let conArrow = document.querySelector(".conArrow");
+
 let conArray = [];
 
 plusBtn.addEventListener("click", () => (popup.style.display = "flex"));
@@ -46,3 +48,14 @@ const arrayMap = () => {
 };
 
 arrayMap();
+
+noticeWrap.addEventListener("click", function (e) {
+  if (e.target.classList.contains("fa-angle-down")) {
+    let conArrow = e.target.parentElement;
+    let noticeCont = conArrow.parentElement;
+    let contText = noticeCont.nextElementSibling;
+    contText.style.display == "none"
+      ? (contText.style.display = "flex")
+      : (contText.style.display = "none");
+  }
+});
