@@ -34,7 +34,9 @@ popupBtn.addEventListener("click", function (e) {
 const arrayMap = () => {
   noticeWrap.innerHTML = "";
   conArray.map((con) => {
-    noticeWrap.innerHTML = `
+    noticeWrap.insertAdjacentHTML(
+      "beforeend",
+      `
     <div class="noticeCont">
       <h3 class="conTitle">${con.title}</h3>
       <div class="conArrow">
@@ -42,9 +44,10 @@ const arrayMap = () => {
       </div>
     </div>
     <div class="contText">${con.text}</div>
-  `;
+  `
+    );
   });
-  console.log("map");
+  console.log(conArray);
 };
 
 arrayMap();
