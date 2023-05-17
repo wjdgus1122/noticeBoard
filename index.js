@@ -37,13 +37,23 @@ const arrayMap = () => {
     noticeWrap.insertAdjacentHTML(
       "beforeend",
       `
-    <div class="noticeCont">
-      <h3 class="conTitle">${con.title}</h3>
-      <div class="conArrow">
-        <i class="fa-solid fa-angle-down"></i>
+    <div class="contWrap">
+      <div class="noticeCont">
+        <div class="frontSet">
+          <div class="checkBox">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h3 class="conTitle">${con.title}</h3>
+        </div>
+        <div class="backSet">
+          <h3 class="conDate">${con.date}</h3>
+          <div class="conArrow">
+            <i class="fa-solid fa-angle-down"></i>
+          </div>
+        </div>
       </div>
+      <div class="contText">${con.text}</div>
     </div>
-    <div class="contText">${con.text}</div>
   `
     );
   });
@@ -55,10 +65,32 @@ arrayMap();
 noticeWrap.addEventListener("click", function (e) {
   if (e.target.classList.contains("fa-angle-down")) {
     let conArrow = e.target.parentElement;
-    let noticeCont = conArrow.parentElement;
+    let backSet = conArrow.parentElement;
+    let noticeCont = backSet.parentElement;
     let contText = noticeCont.nextElementSibling;
     contText.style.display == "none"
       ? (contText.style.display = "flex")
       : (contText.style.display = "none");
+  }
+
+  if (
+    e.target.classList.contains("checkBox") ||
+    e.target.classList.contains("fa-check")
+  ) {
+    if (e.target.classList.contains("checkBox")) {
+      console.log("check1");
+      let checkBox = e.target;
+      checkBox.style.backgroundColor == "white"
+        ? (checkBox.style.backgroundColor = "lightgray")
+        : (checkBox.style.backgroundColor = "white");
+      console.log(checkBox);
+    } else {
+      console.log("check2");
+      let checkBox = e.target.parentElement;
+      checkBox.style.backgroundColor == "white"
+        ? (checkBox.style.backgroundColor = "lightgray")
+        : (checkBox.style.backgroundColor = "white");
+      console.log(checkBox);
+    }
   }
 });

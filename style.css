@@ -118,18 +118,44 @@
     color: salmon;
     
 }
-
+.contWrap{
+    border-bottom: 1px solid salmon;
+}
 .noticeCont{
     width: 100%;
     padding: 1rem;
-    border-bottom: 1px solid salmon;
     display: flex;
     justify-content: space-between;
 }
+.frontSet{
+    display: flex;
+    align-items: center;
+}
+.checkBox{
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 10px;
+    background-color: white;
+    margin-right: 0.5rem;
+}
+
 
 .conTitle{
    font-size: 12px;
    color: #1d1d1d; 
+}
+.backSet{
+    display: flex;
+}
+.conDate{
+    font-size: 10px;
+    color: lightgray;
+    margin-right: 0.5rem;
 }
 .conArrow{
     font-size: 12px;
@@ -146,3 +172,5 @@
     color: #1d1d1d;
     display: none;
 }
+
+
