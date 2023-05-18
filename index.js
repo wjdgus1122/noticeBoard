@@ -5,7 +5,8 @@ let popup = document.querySelector(".noticePopupWrap");
 let popupClose = document.querySelector(".popupClose");
 let popupBtn = document.querySelector(".editBtn");
 let conArrow = document.querySelector(".conArrow");
-
+let deletePopupWrap = document.querySelector(".deletePopupWrap");
+let deletePopup = document.querySelector(".deletePopup");
 let conArray = [];
 
 plusBtn.addEventListener("click", () => (popup.style.display = "flex"));
@@ -29,6 +30,38 @@ popupBtn.addEventListener("click", function (e) {
   document.getElementById("textArea").value = null;
   popup.style.display = "none";
   arrayMap();
+});
+
+deleteBtn.addEventListener("click", () => {
+  deletePopupWrap.style.display = "flex";
+  deletePopup.innerHTML = "";
+  if (conArray.length == 0) {
+    deletePopup.innerHTML = `
+      <h3 class="deletePopupText">삭제할 게시글이 없습니다</h3>
+      <button class="deletePopupBtn">확인</button>
+    `;
+  } else {
+    deletePopup.innerHTML = `
+      <h3 class="deletePopupTitle">해당 게시글을 삭제하시겠습니까?</h3>
+      <button class="deletePopupBtn">삭제하기</button>
+      <div class="btn popupClose">
+          <i class="fa-solid fa-xmark"></i>
+      </div>
+    `;
+    let deletePopupTitle = document.querySelector(".deletePopupTitle");
+    conArray.map((con) => {
+      deletePopupTitle.insertAdjacentHTML(
+        "beforeend",
+        `<h3 class="deletePopupText">${con.title}</h3>`
+      );
+    });
+  }
+});
+
+deletePopup.addEventListener("click", (e) => {
+  if (e.target.classList.contains("deletePopupBtn")) {
+    deletePopupWrap.style.display = "none";
+  }
 });
 
 const arrayMap = () => {
@@ -78,19 +111,15 @@ noticeWrap.addEventListener("click", function (e) {
     e.target.classList.contains("fa-check")
   ) {
     if (e.target.classList.contains("checkBox")) {
-      console.log("check1");
       let checkBox = e.target;
       checkBox.style.backgroundColor == "white"
         ? (checkBox.style.backgroundColor = "lightgray")
         : (checkBox.style.backgroundColor = "white");
-      console.log(checkBox);
     } else {
-      console.log("check2");
       let checkBox = e.target.parentElement;
       checkBox.style.backgroundColor == "white"
         ? (checkBox.style.backgroundColor = "lightgray")
         : (checkBox.style.backgroundColor = "white");
-      console.log(checkBox);
     }
   }
 });

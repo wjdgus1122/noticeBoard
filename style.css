@@ -173,4 +173,47 @@
     display: none;
 }
 
+.deletePopupWrap{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
+.deletePopup{
+    width: 30%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    position: relative;
+}
+
+.deletePopupTitle{
+    color: #1d1d1d;
+    font-size: 12px;
+    margin-bottom: 1rem;
+}
+
+.deletePopupText{
+    color: lightgray;
+    font-size: 10px;
+}
+.deletePopupBtn{
+    all: unset;
+    width: 80%;
+    height: 1.5rem;
+    color: #fff;
+    font-size: 12px;
+    background-color: salmon;
+    border-radius: 0.75rem;
+    text-align: center;
+    margin-top: 1rem;
+    cursor: pointer;
+}
