@@ -44,7 +44,7 @@ deleteBtn.addEventListener("click", () => {
     deletePopup.innerHTML = `
       <h3 class="deletePopupTitle">해당 게시글을 삭제하시겠습니까?</h3>
       <button class="deletePopupBtn">삭제하기</button>
-      <div class="btn popupClose">
+      <div class="btn deleteCloseBtn">
           <i class="fa-solid fa-xmark"></i>
       </div>
     `;
@@ -62,6 +62,10 @@ deletePopup.addEventListener("click", (e) => {
   if (e.target.classList.contains("deletePopupBtn")) {
     deletePopupWrap.style.display = "none";
   }
+  if (e.target.classList.contains("fa-xmark")) {
+    deletePopupWrap.style.display = "none";
+  }
+  console.log(e.target);
 });
 
 const arrayMap = () => {
@@ -90,7 +94,6 @@ const arrayMap = () => {
   `
     );
   });
-  console.log(conArray);
 };
 
 arrayMap();

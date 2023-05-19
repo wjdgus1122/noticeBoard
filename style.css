@@ -217,3 +217,9 @@
     margin-top: 1rem;
     cursor: pointer;
 }
+
+.deleteCloseBtn{
+    position: absolute;
+    top: 1.2rem;
+    right: 1rem;
+}
