@@ -7,6 +7,7 @@ let popupBtn = document.querySelector(".editBtn");
 let conArrow = document.querySelector(".conArrow");
 let deletePopupWrap = document.querySelector(".deletePopupWrap");
 let deletePopup = document.querySelector(".deletePopup");
+const newDate = new Date();
 let conArray = [];
 
 plusBtn.addEventListener("click", () => (popup.style.display = "flex"));
@@ -24,6 +25,7 @@ popupBtn.addEventListener("click", function (e) {
     title: document.getElementById("textInput").value,
     date: document.getElementById("dateInput").value,
     text: document.getElementById("textArea").value,
+    dateId: newDate.toLocaleString(),
   });
   document.getElementById("textInput").value = null;
   document.getElementById("dateInput").value = null;
