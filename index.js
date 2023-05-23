@@ -9,6 +9,7 @@ let deletePopupWrap = document.querySelector(".deletePopupWrap");
 let deletePopup = document.querySelector(".deletePopup");
 const newDate = new Date();
 let conArray = [];
+let checkArray = [];
 
 plusBtn.addEventListener("click", () => (popup.style.display = "flex"));
 
