@@ -80,9 +80,10 @@ const arrayMap = () => {
     <div class="contWrap">
       <div class="noticeCont">
         <div class="frontSet">
-          <div class="checkBox">
-            <i class="fa-solid fa-check"></i>
-          </div>
+          <label class="checkBox" for="${con.id}">
+            <i class="fa-solid fa-check"></i> 
+          </label>
+          <input type="checkbox" id="${con.id}"/>
           <h3 class="conTitle">${con.title}</h3>
         </div>
         <div class="backSet">
@@ -118,12 +119,14 @@ noticeWrap.addEventListener("click", function (e) {
   ) {
     if (e.target.classList.contains("checkBox")) {
       let checkBox = e.target;
-      checkBox.style.backgroundColor == "white"
+      let checkInput = checkBox.nextElementSibling;
+      checkInput.checked == true
         ? (checkBox.style.backgroundColor = "lightgray")
         : (checkBox.style.backgroundColor = "white");
     } else {
       let checkBox = e.target.parentElement;
-      checkBox.style.backgroundColor == "white"
+      let checkInput = checkBox.nextElementSibling;
+      checkInput.checked == true
         ? (checkBox.style.backgroundColor = "lightgray")
         : (checkBox.style.backgroundColor = "white");
     }

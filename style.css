@@ -43,9 +43,6 @@
     color: midnightblue;
 }
 
-.noticeWrap{
-
-}
 
 .noticePopupWrap{
     width: 100%;
@@ -131,6 +128,10 @@
     display: flex;
     align-items: center;
 }
+
+input[type="checkbox"]{
+    display: none;
+}
 .checkBox{
     width: 0.8rem;
     height: 0.8rem;
@@ -143,6 +144,11 @@
     background-color: white;
     margin-right: 0.5rem;
 }
+
+/* .checkBox i{
+    width: 0.4rem;
+    height: 0.4rem;
+} */
 
 
 .conTitle{
@@ -172,6 +178,8 @@
     color: #1d1d1d;
     display: none;
 }
+
+
 
 .deletePopupWrap{
     width: 100%;
