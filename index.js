@@ -52,12 +52,12 @@ deleteBtn.addEventListener("click", () => {
       </div>
     `;
     let deletePopupTitle = document.querySelector(".deletePopupTitle");
-    conArray.map((con) => {
-      deletePopupTitle.insertAdjacentHTML(
-        "beforeend",
-        `<h3 class="deletePopupText">${con.title}</h3>`
-      );
-    });
+    let check = document.querySelectorAll(".checkInput");
+
+    deletePopupTitle.insertAdjacentHTML(
+      "beforeend",
+      `<h3 class="deletePopupText">${con.title}</h3>`
+    );
   }
 });
 
@@ -83,7 +83,7 @@ const arrayMap = () => {
           <label class="checkBox" for="${con.id}">
             <i class="fa-solid fa-check"></i> 
           </label>
-          <input type="checkbox" id="${con.id}"/>
+          <input type="checkbox" id="${con.id}" class="checkInput"/>
           <h3 class="conTitle">${con.title}</h3>
         </div>
         <div class="backSet">
