@@ -44,6 +44,7 @@ deleteBtn.addEventListener("click", () => {
       <button class="deletePopupBtn">확인</button>
     `;
   } else {
+    checkArray.length = 0;
     deletePopup.innerHTML = `
       <h3 class="deletePopupTitle">해당 게시글을 삭제하시겠습니까?</h3>
       <button class="deletePopupBtn">삭제하기</button>
@@ -53,11 +54,17 @@ deleteBtn.addEventListener("click", () => {
     `;
     let deletePopupTitle = document.querySelector(".deletePopupTitle");
     let check = document.querySelectorAll(".checkInput");
-
-    deletePopupTitle.insertAdjacentHTML(
-      "beforeend",
-      `<h3 class="deletePopupText">${con.title}</h3>`
-    );
+    for (let i = 0; i < check.length; i++) {
+      if (check[i].checked == true) {
+        checkArray.push(check[i].value);
+      }
+    }
+    checkArray.map((con) => {
+      deletePopupTitle.insertAdjacentHTML(
+        "beforeend",
+        `<h3 class="deletePopupText">${con}</h3>`
+      );
+    });
   }
 });
 
@@ -83,7 +90,7 @@ const arrayMap = () => {
           <label class="checkBox" for="${con.id}">
             <i class="fa-solid fa-check"></i> 
           </label>
-          <input type="checkbox" id="${con.id}" class="checkInput"/>
+          <input type="checkbox" id="${con.id}" value="${con.title}" class="checkInput"/>
           <h3 class="conTitle">${con.title}</h3>
         </div>
         <div class="backSet">
@@ -121,14 +128,14 @@ noticeWrap.addEventListener("click", function (e) {
       let checkBox = e.target;
       let checkInput = checkBox.nextElementSibling;
       checkInput.checked == true
-        ? (checkBox.style.backgroundColor = "lightgray")
-        : (checkBox.style.backgroundColor = "white");
+        ? (checkBox.style.backgroundColor = "white")
+        : (checkBox.style.backgroundColor = "lightgray");
     } else {
       let checkBox = e.target.parentElement;
       let checkInput = checkBox.nextElementSibling;
       checkInput.checked == true
-        ? (checkBox.style.backgroundColor = "lightgray")
-        : (checkBox.style.backgroundColor = "white");
+        ? (checkBox.style.backgroundColor = "white")
+        : (checkBox.style.backgroundColor = "lightgray");
     }
   }
 });
