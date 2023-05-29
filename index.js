@@ -139,3 +139,9 @@ noticeWrap.addEventListener("click", function (e) {
     }
   }
 });
+
+{
+  /* <div class="btn deleteBtn">
+    <i class="fa-solid fa-trash-can"></i>
+</div> */
+}
