@@ -37,6 +37,10 @@
 
 .deleteBtn{
     margin-left: 0.8rem;
+    font-size: 12px;
+    color: lightgray;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .deleteBtn:hover{

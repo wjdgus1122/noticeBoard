@@ -26,7 +26,6 @@ popupBtn.addEventListener("click", function (e) {
     title: document.getElementById("textInput").value,
     date: document.getElementById("dateInput").value,
     text: document.getElementById("textArea").value,
-    dateId: newDate.toLocaleString(),
   });
   document.getElementById("textInput").value = null;
   document.getElementById("dateInput").value = null;
@@ -35,42 +34,43 @@ popupBtn.addEventListener("click", function (e) {
   arrayMap();
 });
 
-deleteBtn.addEventListener("click", () => {
-  deletePopupWrap.style.display = "flex";
-  deletePopup.innerHTML = "";
-  if (conArray.length == 0) {
-    deletePopup.innerHTML = `
-      <h3 class="deletePopupText">삭제할 게시글이 없습니다</h3>
-      <button class="deletePopupBtn">확인</button>
-    `;
-  } else {
-    checkArray.length = 0;
-    deletePopup.innerHTML = `
-      <h3 class="deletePopupTitle">해당 게시글을 삭제하시겠습니까?</h3>
-      <button class="deletePopupBtn">삭제하기</button>
-      <div class="btn deleteCloseBtn">
-          <i class="fa-solid fa-xmark"></i>
-      </div>
-    `;
-    let deletePopupTitle = document.querySelector(".deletePopupTitle");
-    let check = document.querySelectorAll(".checkInput");
-    for (let i = 0; i < check.length; i++) {
-      if (check[i].checked == true) {
-        checkArray.push(check[i].value);
-      }
-    }
-    checkArray.map((con) => {
-      deletePopupTitle.insertAdjacentHTML(
-        "beforeend",
-        `<h3 class="deletePopupText">${con}</h3>`
-      );
-    });
-  }
-});
+// deleteBtn.addEventListener("click", () => {
+//   deletePopupWrap.style.display = "flex";
+//   deletePopup.innerHTML = "";
+//   if (conArray.length == 0) {
+//     deletePopup.innerHTML = `
+//       <h3 class="deletePopupText">삭제할 게시글이 없습니다</h3>
+//       <button class="deletePopupBtn">확인</button>
+//     `;
+//   } else {
+//     checkArray.length = 0;
+//     deletePopup.innerHTML = `
+//       <h3 class="deletePopupTitle">해당 게시글을 삭제하시겠습니까?</h3>
+//       <button class="deletePopupBtn">삭제하기</button>
+//       <div class="btn deleteCloseBtn">
+//           <i class="fa-solid fa-xmark"></i>
+//       </div>
+//     `;
+//     let deletePopupTitle = document.querySelector(".deletePopupTitle");
+//     let check = document.querySelectorAll(".checkInput");
+//     for (let i = 0; i < check.length; i++) {
+//       if (check[i].checked == true) {
+//         checkArray.push(check[i].value);
+//       }
+//     }
+//     checkArray.map((con) => {
+//       deletePopupTitle.insertAdjacentHTML(
+//         "beforeend",
+//         `<h3 class="deletePopupText">${con}</h3>`
+//       );
+//     });
+//   }
+// });
 
 deletePopup.addEventListener("click", (e) => {
   if (e.target.classList.contains("deletePopupBtn")) {
     deletePopupWrap.style.display = "none";
+
   }
   if (e.target.classList.contains("fa-xmark")) {
     deletePopupWrap.style.display = "none";
@@ -97,6 +97,9 @@ const arrayMap = () => {
           <h3 class="conDate">${con.date}</h3>
           <div class="conArrow">
             <i class="fa-solid fa-angle-down"></i>
+          </div>
+          <div class="deleteBtn">
+             <i class="fa-solid fa-trash-can"></i>
           </div>
         </div>
       </div>
@@ -138,10 +141,32 @@ noticeWrap.addEventListener("click", function (e) {
         : (checkBox.style.backgroundColor = "lightgray");
     }
   }
-});
 
-{
-  /* <div class="btn deleteBtn">
-    <i class="fa-solid fa-trash-can"></i>
-</div> */
-}
+  if (
+    e.target.classList.contains("deleteBtn") ||
+    e.target.classList.contains("fa-trash-can")
+  ) {
+    if (e.target.classList.contains("deleteBtn")) {
+      let deleteBtn = e.target;
+      let backSet = checkBox.nextElementSibling;
+      deletePopup.innerHTML = `
+      <h3 class="deletePopupTitle">해당 게시글을 삭제하시겠습니까?</h3>
+      <button class="deletePopupBtn">삭제하기</button>
+      <div class="btn deleteCloseBtn">
+          <i class="fa-solid fa-xmark"></i>
+      </div>
+    `;
+    } else {
+      let checkBox = e.target.parentElement;
+      let checkInput = checkBox.nextElementSibling;
+      deletePopup.innerHTML = `
+      <h3 class="deletePopupTitle">해당 게시글을 삭제하시겠습니까?</h3>
+      <button class="deletePopupBtn">삭제하기</button>
+      <div class="btn deleteCloseBtn">
+          <i class="fa-solid fa-xmark"></i>
+      </div>
+    `;
+    }
+    
+  }
+});
