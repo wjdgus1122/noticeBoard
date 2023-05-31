@@ -70,7 +70,6 @@ popupBtn.addEventListener("click", function (e) {
 deletePopup.addEventListener("click", (e) => {
   if (e.target.classList.contains("deletePopupBtn")) {
     deletePopupWrap.style.display = "none";
-
   }
   if (e.target.classList.contains("fa-xmark")) {
     deletePopupWrap.style.display = "none";
@@ -148,25 +147,16 @@ noticeWrap.addEventListener("click", function (e) {
   ) {
     if (e.target.classList.contains("deleteBtn")) {
       let deleteBtn = e.target;
-      let backSet = checkBox.nextElementSibling;
-      deletePopup.innerHTML = `
-      <h3 class="deletePopupTitle">해당 게시글을 삭제하시겠습니까?</h3>
-      <button class="deletePopupBtn">삭제하기</button>
-      <div class="btn deleteCloseBtn">
-          <i class="fa-solid fa-xmark"></i>
-      </div>
-    `;
+      let backSet = deleteBtn.parentElement;
+      let noticeCont = backSet.parentElement;
+      let contWrap = noticeCont.parentElement;
+      noticeWrap.removeChild(contWrap);
     } else {
-      let checkBox = e.target.parentElement;
-      let checkInput = checkBox.nextElementSibling;
-      deletePopup.innerHTML = `
-      <h3 class="deletePopupTitle">해당 게시글을 삭제하시겠습니까?</h3>
-      <button class="deletePopupBtn">삭제하기</button>
-      <div class="btn deleteCloseBtn">
-          <i class="fa-solid fa-xmark"></i>
-      </div>
-    `;
+      let deleteBtn = e.target.parentElement;
+      let backSet = deleteBtn.parentElement;
+      let noticeCont = backSet.parentElement;
+      let contWrap = noticeCont.parentElement;
+      noticeWrap.removeChild(contWrap);
     }
-    
   }
 });
